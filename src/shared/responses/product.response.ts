@@ -2,7 +2,7 @@
  * Product API Response Types
  */
 
-import { Product, Progress } from '../entities/product.entity';
+import { Product } from '../entities/product.entity';
 
 export namespace ProductResponse {
   export interface GetList {
@@ -19,28 +19,6 @@ export namespace ProductResponse {
 
   export interface Update {
     updated: Product;
-  }
-
-  export interface Delete {
-    deleted: number;
-  }
-}
-
-export namespace ProgressResponse {
-  export interface GetList {
-    progress: Progress[];
-  }
-
-  export interface GetById {
-    progress: Progress;
-  }
-
-  export interface Create {
-    created: Progress;
-  }
-
-  export interface Update {
-    updated: Progress;
   }
 
   export interface Delete {
