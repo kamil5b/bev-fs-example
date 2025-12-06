@@ -66,7 +66,7 @@ import LoadingSpinner from '../components/LoadingSpinner.vue';
 
 const router = useRouter();
 const route = useRoute();
-const { get, createProgress, updateProgress, deleteProgress: removeProgress } = useProductAPI();
+const { get, listProgress, createProgress, updateProgress, deleteProgress: removeProgress } = useProductAPI();
 const product = ref<Product | null>(null);
 const progresses = ref<Progress[]>([]);
 const editing = ref(false);
@@ -79,6 +79,10 @@ onMounted(async () => {
   try {
     const data = await get(productId);
     product.value = data.product;
+    
+    // Load progress items for this product
+    const progressData = await listProgress(productId);
+    progresses.value = progressData.progress;
   } catch (error) {
     console.error('Failed to load product:', error);
     router.push('/');

@@ -14,12 +14,6 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  isOpen: boolean;
-  title?: string;
-  saveLabel?: string;
-}>();
-
 withDefaults(defineProps<{
   isOpen: boolean;
   title?: string;

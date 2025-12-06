@@ -43,6 +43,11 @@ export function useProductAPI() {
     return res.json();
   };
 
+  const listProgress = async (productId: number): Promise<ProgressResponse.GetList> => {
+    const res = await fetch(`${BASE_URL}/product/${productId}/progress`);
+    return res.json();
+  };
+
   const createProgress = async (
     productId: number,
     data: any
@@ -84,6 +89,7 @@ export function useProductAPI() {
     create,
     update,
     remove,
+    listProgress,
     createProgress,
     updateProgress,
     deleteProgress
